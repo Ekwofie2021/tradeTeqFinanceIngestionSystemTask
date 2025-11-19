@@ -12,3 +12,17 @@ git add .
 
 # Commit
 git commit -m "Initial commit"
+/TradeFinanceIngestionSystem
+/TradeFinanceIngestionSystem/.vs
+/TradeFinanceIngestionSystem/.vs/ProjectEvaluation
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem/config
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem/CopilotIndices/17.14.1347.20289
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem/DesignTimeBuild
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem/FileContentIndex
+/TradeFinanceIngestionSystem/.vs/TradeFinanceIngestionSystem/v17
+/TradeFinanceIngestionSystem/Domain
+/TradeFinanceIngestionSystem/TradeFinanceIngestionSystem/obj
+/TradeFinanceIngestionSystem/TradeFinanceIngestionSystem.Application
+/TradeFinanceIngestionSystem/TradeFinanceIngestionSystem.Infrastructure
+/TradeFinanceIngestionSystem/TradeFinanceIngestionSystem.Tests
