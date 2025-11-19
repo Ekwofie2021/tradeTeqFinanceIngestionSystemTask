@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TradeFinanceIngestionSystem/TradeFinanceIngestionSystem/bin/Debug/net9.0
+
+# Initialize Git repo
+git init
+
+# Add all files (gitignore will automatically exclude bin/obj)
+git add .
+
+# Commit
+git commit -m "Initial commit"

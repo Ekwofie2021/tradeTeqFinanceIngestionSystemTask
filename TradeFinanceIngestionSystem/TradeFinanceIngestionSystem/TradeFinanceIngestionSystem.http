@@ -1,0 +1,12 @@
+@TradeFinanceIngestionSystem_HostAddress = http://localhost:5018
+
+GET {{TradeFinanceIngestionSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+
+GET {{TradeFinanceIngestionSystem_HostAddress}}/note/
+Accept: application/json
+
+###
