@@ -262,9 +262,9 @@ TradeFinanceIngestionSystem.Tests/
 
 ## How to Run
 
-**What you need:** [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+**What you need:** [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) or [Docker](https://www.docker.com/)
 
-### Quick Start
+### Quick Start (Local)
 
 ```bash
 # Clone the repo
@@ -278,6 +278,47 @@ dotnet run --project TradeFinanceIngestionSystem
 That's it! The API will start at `http://localhost:5018`
 
 Go to `http://localhost:5018/swagger` to see all the endpoints and try them out.
+
+### Docker (Recommended)
+
+**Using Docker Compose (Easiest):**
+```bash
+# Start the application
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the application
+docker-compose down
+```
+
+**Using Docker directly:**
+```bash
+# Build the image
+docker build -t tradefinance-ingestion-system .
+
+# Run the container
+docker run -d -p 5018:8080 --name tradefinance-api tradefinance-ingestion-system
+
+# View logs
+docker logs -f tradefinance-api
+
+# Stop and remove
+docker stop tradefinance-api
+docker rm tradefinance-api
+```
+
+The API will be available at `http://localhost:5018`
+
+Test it:
+```bash
+# Using curl
+curl http://localhost:5018/api/note?pageNumber=1&pageSize=5
+
+# Using PowerShell
+Invoke-WebRequest -Uri "http://localhost:5018/api/note?pageNumber=1&pageSize=5" -UseBasicParsing
+```
 
 ### Run Tests
 

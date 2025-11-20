@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  tradefinance-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tradefinance-ingestion-api
+    ports:
+      - "5018:8080"
+      - "5019:8081"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    restart: unless-stopped
