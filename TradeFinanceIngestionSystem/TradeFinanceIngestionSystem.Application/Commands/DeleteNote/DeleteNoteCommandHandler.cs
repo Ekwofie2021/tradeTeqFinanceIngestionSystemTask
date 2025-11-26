@@ -3,7 +3,7 @@ using TradeFinanceIngestionSystem.Application.Interfaces;
 
 namespace TradeFinanceIngestionSystem.Application.Commands.DeleteNote
 {
-    public class DeleteNoteCommandCommandHandler(INoteRepository _noteRepository, IInstrumentRepository _instrumentRepository) 
+    public class DeleteNoteCommandHandler(INoteRepository _noteRepository, IInstrumentRepository _instrumentRepository) 
         : IRequestHandler<DeleteNoteCommand, bool>
     {
         public async Task<bool> Handle(DeleteNoteCommand request, CancellationToken cancellationToken)
@@ -11,7 +11,7 @@ namespace TradeFinanceIngestionSystem.Application.Commands.DeleteNote
             var note = await _noteRepository.GetNoteByIdAsync(request.NoteId, cancellationToken)
                 ?? throw new KeyNotFoundException($"The Note with ID: {request.NoteId} cannot be found");
 
-            await _instrumentRepository.DeleteInstrumentsAssociatedToNoteByIdsAsync(note.Id, cancellationToken);
+            await _instrumentRepository.DeleteInstrumentsAssociatedToNoteByIdAsync(note.Id, cancellationToken);
 
             var success = await _noteRepository.DeleteNoteAsync(note, cancellationToken);
 

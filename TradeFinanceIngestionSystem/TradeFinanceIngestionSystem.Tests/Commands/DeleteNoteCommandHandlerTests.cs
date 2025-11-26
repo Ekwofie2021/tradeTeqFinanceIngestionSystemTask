@@ -12,13 +12,13 @@ namespace TradeFinanceIngestionSystem.Tests.Commands
     {
         private readonly Mock<INoteRepository> _mockNoteRepository;
         private readonly Mock<IInstrumentRepository> _mockInstrumentRepository;
-        private readonly DeleteNoteCommandCommandHandler _handler;
+        private readonly DeleteNoteCommandHandler _handler;
 
         public DeleteNoteCommandHandlerTests()
         {
             _mockNoteRepository = new Mock<INoteRepository>();
             _mockInstrumentRepository = new Mock<IInstrumentRepository>();
-            _handler = new DeleteNoteCommandCommandHandler(
+            _handler = new DeleteNoteCommandHandler(
                 _mockNoteRepository.Object,
                 _mockInstrumentRepository.Object
             );
@@ -42,7 +42,7 @@ namespace TradeFinanceIngestionSystem.Tests.Commands
                 .ReturnsAsync(note);
 
             _mockInstrumentRepository
-                .Setup(r => r.DeleteInstrumentsAssociatedToNoteByIdsAsync(noteId, It.IsAny<CancellationToken>()))
+                .Setup(r => r.DeleteInstrumentsAssociatedToNoteByIdAsync(noteId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(true);
 
             _mockNoteRepository
@@ -61,7 +61,7 @@ namespace TradeFinanceIngestionSystem.Tests.Commands
                 Times.Once
             );
             _mockInstrumentRepository.Verify(
-                r => r.DeleteInstrumentsAssociatedToNoteByIdsAsync(noteId, It.IsAny<CancellationToken>()), 
+                r => r.DeleteInstrumentsAssociatedToNoteByIdAsync(noteId, It.IsAny<CancellationToken>()), 
                 Times.Once
             );
             _mockNoteRepository.Verify(
@@ -89,7 +89,7 @@ namespace TradeFinanceIngestionSystem.Tests.Commands
                 .WithMessage($"The Note with ID: {noteId} cannot be found");
 
             _mockInstrumentRepository.Verify(
-                r => r.DeleteInstrumentsAssociatedToNoteByIdsAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), 
+                r => r.DeleteInstrumentsAssociatedToNoteByIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), 
                 Times.Never
             );
             _mockNoteRepository.Verify(
@@ -116,7 +116,7 @@ namespace TradeFinanceIngestionSystem.Tests.Commands
                 .ReturnsAsync(note);
 
             _mockInstrumentRepository
-                .Setup(r => r.DeleteInstrumentsAssociatedToNoteByIdsAsync(noteId, It.IsAny<CancellationToken>()))
+                .Setup(r => r.DeleteInstrumentsAssociatedToNoteByIdAsync(noteId, It.IsAny<CancellationToken>()))
                 .ReturnsAsync(true);
 
             _mockNoteRepository

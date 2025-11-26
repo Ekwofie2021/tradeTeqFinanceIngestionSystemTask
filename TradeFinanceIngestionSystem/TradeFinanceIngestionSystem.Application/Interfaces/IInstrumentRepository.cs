@@ -12,6 +12,6 @@ namespace TradeFinanceIngestionSystem.Application.Interfaces
         Task<Dictionary<Guid, List<Instrument>>> GetInstrumentsByNoteIdsAsync(IEnumerable<Guid> noteIds, CancellationToken cancellationToken);         
         Task<Instrument> UpdateInstrumentAsync(Instrument instrument, CancellationToken cancellationToken);
         Task<bool> DeleteInstrumentAsync(Instrument instrument, CancellationToken cancellationToken);  
-        Task<bool> DeleteInstrumentsAssociatedToNoteByIdsAsync(Guid noteId, CancellationToken cancellationToken);
+        Task<bool> DeleteInstrumentsAssociatedToNoteByIdAsync(Guid noteId, CancellationToken cancellationToken);
     }
 }

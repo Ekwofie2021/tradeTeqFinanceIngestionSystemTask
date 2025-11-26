@@ -15,13 +15,13 @@ namespace TradeFinanceIngestionSystem.Application.Queries.GetNotes
 
             // Fetch all instruments for all notes in a single query
             var noteIds = notes.Select(n => n.Id).ToList();
-            var instrumentsByNoteId = await _instrumentRepository.GetInstrumentsByNoteIdsAsync(noteIds, cancellationToken);
+            var instrumentsByNoteIdDictionary = await _instrumentRepository.GetInstrumentsByNoteIdsAsync(noteIds, cancellationToken);
 
             var noteDtos = new List<NoteDetailDto>(notes.Count);
 
             foreach (var note in notes)
             {
-                var instruments = instrumentsByNoteId.GetValueOrDefault(note.Id, []);
+                var instruments = instrumentsByNoteIdDictionary.GetValueOrDefault(note.Id, []);
                 var noteDto = NoteWithInstrumentMapper.MapToDto(note, instruments);
                 noteDtos.Add(noteDto);
             }

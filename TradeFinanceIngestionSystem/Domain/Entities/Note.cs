@@ -1,6 +1,5 @@
 ﻿
 using TradeFinanceIngestionSystem.Domain.Enums;
-using TradeFinanceIngestionSystem.Domain.ValueObjects;
 
 namespace TradeFinanceIngestionSystem.Domain.Entities
 {

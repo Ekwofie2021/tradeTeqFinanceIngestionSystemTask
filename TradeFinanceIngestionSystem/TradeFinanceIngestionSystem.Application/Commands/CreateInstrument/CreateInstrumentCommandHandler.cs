@@ -24,16 +24,21 @@ namespace TradeFinanceIngestionSystem.Application.Commands.CreateInstrument
                 throw new ArgumentException($"Invalid currency: {nameof(request.Currency)}");
             }
 
+            if (note.Currency != currency)
+            {
+                throw new ArgumentException($"Instrument: {nameof(request.Currency)} currency does not match Note currency");
+            }
+
             var instrument = new Instrument
             {
                 Id = Guid.NewGuid(),
-                NoteId = request.NoteId,
+                NoteId = note.Id,
                 Type = type,
                 IssueDate = request.IssueDate,
                 MaturityDate = request.MaturityDate,
-                Currency = currency,
-                PurchaseAmount = Price.Create(request.PurchaseAmount, request.Currency.ToString()).Amount,
-                RepaymentAmount = Price.Create(request.RepaymentAmount, request.Currency.ToString()).Amount
+                Currency = note.Currency,
+                PurchaseAmount = Price.Create(request.PurchaseAmount, note.Currency.ToString()).Amount,
+                RepaymentAmount = Price.Create(request.RepaymentAmount, note.Currency.ToString()).Amount
             };
 
             await _instrumentRepository.SaveInstrumentAsync(instrument, cancellationToken);

@@ -4,7 +4,6 @@ using TradeFinanceIngestionSystem.Application.Commands.DeleteInstrument;
 using TradeFinanceIngestionSystem.Application.Interfaces;
 using TradeFinanceIngestionSystem.Domain.Entities;
 using TradeFinanceIngestionSystem.Domain.Enums;
-using Xunit;
 using Type = TradeFinanceIngestionSystem.Domain.Enums.Type;
 
 namespace TradeFinanceIngestionSystem.Tests.Commands

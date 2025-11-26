@@ -64,7 +64,7 @@ namespace TradeFinanceIngestionSystem.Infrastructure.Repositories
             return changes > 0;            
         }
 
-        public async Task<bool> DeleteInstrumentsAssociatedToNoteByIdsAsync(Guid noteId, CancellationToken cancellationToken)
+        public async Task<bool> DeleteInstrumentsAssociatedToNoteByIdAsync(Guid noteId, CancellationToken cancellationToken)
         {
             var instruments = await _instrumentDataContext.Instruments
                 .Where(i => i.NoteId == noteId)
@@ -77,7 +77,6 @@ namespace TradeFinanceIngestionSystem.Infrastructure.Repositories
             var changes = await _instrumentDataContext.SaveChangesAsync(cancellationToken);
             return changes > 0;
         }
-
 
         public async Task<Instrument> UpdateInstrumentAsync(Instrument instrument, CancellationToken cancellationToken)
         {
