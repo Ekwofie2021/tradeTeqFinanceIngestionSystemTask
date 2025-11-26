@@ -1,6 +1,6 @@
 using FluentAssertions;
 using Moq;
-using TradeFinanceIngestionSystem.Application.Commands.CreateNote;
+using TradeFinanceIngestionSystem.Application.Commands.UpdateNote;
 using TradeFinanceIngestionSystem.Application.Interfaces;
 using TradeFinanceIngestionSystem.Domain.Entities;
 using TradeFinanceIngestionSystem.Domain.Enums;

@@ -2,7 +2,7 @@
 using TradeFinanceIngestionSystem.Application.Interfaces;
 using TradeFinanceIngestionSystem.Domain.Enums;
 
-namespace TradeFinanceIngestionSystem.Application.Commands.CreateNote
+namespace TradeFinanceIngestionSystem.Application.Commands.UpdateNote
 {
     public class UpdateNoteStatusCommandHandler(INoteRepository _noteRepository)
         : IRequestHandler<UpdateNoteStatusCommand, Guid>

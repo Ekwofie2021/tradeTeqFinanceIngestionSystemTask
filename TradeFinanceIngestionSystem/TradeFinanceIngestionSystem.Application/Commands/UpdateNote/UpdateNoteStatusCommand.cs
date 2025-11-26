@@ -1,7 +1,7 @@
 ﻿
 using MediatR;
 
-namespace TradeFinanceIngestionSystem.Application.Commands.CreateNote
+namespace TradeFinanceIngestionSystem.Application.Commands.UpdateNote
 {
     public class UpdateNoteStatusCommand : IRequest<Guid>
     {
